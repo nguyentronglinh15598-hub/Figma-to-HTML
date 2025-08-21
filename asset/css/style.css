@@ -4,6 +4,94 @@
 html {
   font-size: 62.5%;
 }
+/* Khôi phục chữ mặc định */
 body {
   font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+/* Khối class chung */
+a {
+  /* Bỏ gạch chân */
+  text-decoration: none;
+}
+.btn {
+  /* Code cho phần nút ấn */
+  display: inline-block; /* xét thành il-block để thêm padding */
+  min-width: 118px; /* xác định chiều rộng tối thiểu */
+  padding: 0 16px; /* tạo khoảng đệm 2 bên */
+  line-height: 50px; /* đặt chiều cao nút bấm */
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 24.5px;
+  background: #171100;
+}
+
+.main-content {
+  width: 1170px;
+  /* kéo trình duyệt nhỏ thì thanh công cụ ko sát lề */
+  max-width: calc(100% - 48px);
+  margin-left: auto; /* đẩy thanh menu từ phải ra giữa*/
+  margin-right: auto; /* đẩy thanh logo từ trái ra giữa */
+}
+/*       Header    */
+.header {
+  background: #fffcf4;
+}
+.header .fixed {
+  /* Tạo bám dính cách trên cùng 8px */
+  position: sticky;
+  top: -28px;
+}
+.header .body {
+  display: flex;
+  align-items: center; /* căn giữa */
+  padding: 36px 0 8px;
+}
+
+.nav {
+  /* Đẩy khối nav sang bên phải */
+  margin-left: auto;
+}
+
+.nav ul {
+  display: flex;
+}
+
+.nav a {
+  position: relative;
+  color: #5f5b53;
+  font-size: 1.6rem; /*Tăng kích cỡ font chữ*/
+  padding: 8px 21px; /*Tăng khoảng cách và tăng vùng bấm*/
+}
+.nav li.active a,
+.nav a:hover {
+  /* khi click vào chữ nháy đậm */
+  color: #171100;
+  /* font-weight: 600; */
+  /* Tạo ra hiệu ứng bóng đổ mà ko ảnh hưởng text x.q */
+  text-shadow: 1px 0 0 currentColor;
+}
+
+.nav li.active a::after {
+  position: absolute; /* thêm thẻ .nav a position */
+  /*dịch gạch chân theo padding */
+  left: 21px;
+  bottom: 6px;
+  display: block; /*vì ở inline ko hiện gạch chân */
+  content: "";
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+  background: #171100;
+}
+
+.header .btn-sign-up {
+  min-width: 114px;
+}
+
+.header .action {
+  /* Cách nút sign up với reviews 70px */
+  margin-left: 49px;
 }
