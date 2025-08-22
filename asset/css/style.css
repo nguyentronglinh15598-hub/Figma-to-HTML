@@ -1,6 +1,12 @@
 * {
   box-sizing: border-box;
 }
+
+/* Tạo biến để tái sử dụng */
+:root {
+  --font-heading: "Sen", sans-serif; /* Tạo biến chữ */
+  --primary-color: #ffb900;
+}
 html {
   font-size: 62.5%;
 }
@@ -24,10 +30,13 @@ a {
   text-align: center;
   font-size: 1.6rem;
   font-weight: 600;
-  border-radius: 24.5px;
+  border-radius: 999px; /* đặt bán kính bo lớn hẳn rồi ghi đè sau */
   background: #171100;
 }
-
+/* code tương tác khi ấn nút */
+.btn:hover {
+  opacity: 0.9; /* nút sẽ mờ đi khi ấn */
+}
 .main-content {
   width: 1170px;
   /* kéo trình duyệt nhỏ thì thanh công cụ ko sát lề */
@@ -40,6 +49,7 @@ a {
   background: #fffcf4;
 }
 .header .fixed {
+  z-index: 1; /* xác định tứ tự chồng chéo */
   /* Tạo bám dính cách trên cùng 8px */
   position: sticky;
   top: -28px;
@@ -94,4 +104,167 @@ a {
 .header .action {
   /* Cách nút sign up với reviews 70px */
   margin-left: 49px;
+}
+
+/* code phan hero */
+.hero {
+  padding: 56px 0 65px; /* khung cách phần menu phía trên 56 trái-phải 0 dưới 65 */
+  background-color: #fffcf4; /* đổ màu cho toàn khung */
+}
+
+.hero .body {
+  display: flex; /* dàn ngang 2 khối khối phải và khối trái */
+}
+/* Khối bên trái */
+.hero .media-block {
+  position: relative;
+  width: 48%; /* Đặt chiều rộng tương đối của ảnh */
+}
+
+.hero .content-block {
+  width: 52%; /* chiều rộng tương đối của phần chữ (khối bên trái) */
+}
+.hero .media-block .img {
+  width: 470px; /* chiều rộng của ảnh */
+  height: 685px; /* chiều cao của ảnh */
+  object-fit: cover; /* set ảnh cho vừa kính thước đã đặt ở trên */
+  border-radius: 20px; /* bo viền ảnh */
+}
+.hero .hero-summary {
+  /* làm cho khối nhỏ đè lên khối to */
+  position: absolute; /* đặt khối con là absolute khối to media-block:relative */
+  bottom: 48px; /* cách dưới 48 px */
+  right: 0; /* cách phải 0 */
+  border-radius: 12px; /* bo viền 12px */
+  background: #fff;
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05); /* đổ bóng */
+  width: 270px; /* chiều rộng của khối nhỏ */
+  padding: 24px;
+}
+
+.hero-summary .item {
+  display: flex; /* đặt ảnh và chữ của khối con nằm ngang */
+  align-items: center; /* căn item ngang với dòng chữ */
+}
+.hero-summary .icon {
+  /* set kích thước hình ảnh con */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  /* Căn giữ hình ảnh icon con */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff9e8;
+}
+
+.hero-summary .item + .item {
+  margin-top: 22px; /* Dãn cách item với item */
+}
+.hero-summary .icon2 {
+  background-color: #fcefff;
+}
+.hero-summary .icon3 {
+  background-color: #ebeafe;
+}
+.hero-summary .info {
+  margin-left: 16px; /* phần chữ cách phần logo 16px */
+}
+
+/* code cho phần chữ nhỏ bên phải icon */
+.hero-summary .label {
+  color: #5f5b53;
+  font-size: 1.4rem;
+  line-height: 1.86;
+}
+.hero-summary .title {
+  color: #171100;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* Khối bên phải */
+.hero .content-block {
+  width: 52%; /* chiều rộng tương đối */
+  padding-left: 130px; /* cách lề trái 130 */
+  padding-top: 64px; /* cách lề trên 64 */
+}
+/* Căn chỉnh kích thước chữ bên phải */
+.hero .heading {
+  color: #171100;
+  font-family: var(--font-heading);
+  font-size: 5.8rem;
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: -1.16px; /* Giảm khoảng cách giữa các ký tự */
+}
+
+.hero .desc {
+  margin-top: 22px;
+  color: #5f5b53;
+  font-size: 1.8rem;
+  line-height: 1.67;
+}
+
+.hero .cta-group {
+  margin-top: 38px; /* khối nút ấn cách chư nhỏ 38px */
+  display: flex; /* xoay ngang cả khối nút ấn và watch-video */
+  align-items: center; /* căn giữ theo chiều dọc */
+}
+/* sửa nút click và watch video */
+.hero-cta {
+  min-width: 180px;
+  background-color: var(--primary-color);
+  line-height: 64px; /* chiều cao nút */
+}
+
+.hero .watch-video {
+  border: none; /* bỏ viền */
+  background: transparent;
+  display: flex; /* xoay ngang */
+  margin-left: 28px; /* cách nút watch-video với nút click */
+  align-items: center; /* căn giữa chữ watch-video */
+  cursor: pointer; /* khi di chuột đến hiện hình bàn tay */
+}
+
+/* code cho vòng tròn nút watch-video */
+.hero .watch-video .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.07);
+  /* căn nút với vòng bo tròn */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero .watch-video span {
+  /* code cho chữ watch-video */
+  color: #171100;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.67;
+  margin: 14px; /* cách icon nút 14px */
+}
+/* code 2 dòng text cuối cùng */
+.hero .desc-recent {
+  margin-top: 48px; /* cách dòng nút ấn watch-video 48px */
+}
+
+.hero .stats {
+  margin-top: 8px;
+}
+.hero .stats strong {
+  margin-right: 15px;
+  color: #171100;
+  font-family: var(--font-heading);
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1.23;
+}
+.hero .stats strong:nth-child(2) {
+  margin-left: 28px;
 }
